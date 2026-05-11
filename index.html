@@ -7,6 +7,14 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet" />
+<meta name="ext-resource-dependency" content="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260412_050523_dc974590-633e-46d2-b3a7-6c19609cd6ed.mp4" data-resource-id="heroVideo" />
+<meta name="ext-resource-dependency" content="assets/sector-companion.jpeg" data-resource-id="sectorCompanion" />
+<meta name="ext-resource-dependency" content="assets/sector-equine.jpeg" data-resource-id="sectorEquine" />
+<meta name="ext-resource-dependency" content="assets/sector-agriculture.jpeg" data-resource-id="sectorAgriculture" />
+<meta name="ext-resource-dependency" content="assets/sector-exotic.jpeg" data-resource-id="sectorExotic" />
+<meta name="ext-resource-dependency" content="assets/capability-collagen.jpeg" data-resource-id="capabilityCollagen" />
+<meta name="ext-resource-dependency" content="assets/founder-lisa.jpeg" data-resource-id="founderLisa" />
+<meta name="ext-resource-dependency" content="assets/founder-lee.jpeg" data-resource-id="founderLee" />
 <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
@@ -95,18 +103,10 @@
     display: flex; align-items: flex-end;
     padding: 120px 0 56px;
   }
-  .hero-video-wrap {
-    position: absolute; inset: 0; z-index: 0;
-    background:
-      radial-gradient(ellipse 80% 60% at 70% 20%, rgba(132,168,144,0.35) 0%, transparent 60%),
-      radial-gradient(ellipse 60% 50% at 20% 80%, rgba(46,90,63,0.55) 0%, transparent 60%),
-      radial-gradient(ellipse 90% 70% at 50% 50%, #1f3a2b 0%, #0a140d 80%);
-  }
-  .hero-video-wrap::before {
-    content: ''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(115deg, transparent 0%, transparent 38%, rgba(198,226,122,0.06) 39%, rgba(198,226,122,0.06) 40%, transparent 41%),
-      linear-gradient(115deg, transparent 0%, transparent 62%, rgba(255,255,255,0.04) 63%, rgba(255,255,255,0.04) 64%, transparent 65%);
+  .hero-video-wrap { position: absolute; inset: 0; z-index: 0; background: #0a140d; }
+  .hero-video-wrap video {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+    filter: saturate(0.5) contrast(1.02) brightness(0.95) hue-rotate(95deg);
   }
   .hero-tint {
     position: absolute; inset: 0;
@@ -455,6 +455,14 @@
 </head>
 <body>
 
+<template id="__bundler_thumbnail" data-bg-color="#1f3a2b">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#1f3a2b"/>
+    <circle cx="600" cy="400" r="180" fill="none" stroke="#c6e27a" stroke-width="6"/>
+    <path d="M510 490 L510 310 L690 490 L690 310" fill="none" stroke="#c6e27a" stroke-width="8" stroke-linecap="square"/>
+  </svg>
+</template>
+
 <div id="root"></div>
 
 <!-- Enquiry endpoint: replace with your deployed Cloudflare Worker URL -->
@@ -491,11 +499,11 @@ function useClock() {
   const [t, setT] = useState('');
   useEffect(() => {
     const update = () => {
-      const d = new Date(Date.now() + 60 * 60 * 1000);
+      const d = new Date();
       const hh = String(d.getUTCHours()).padStart(2,'0');
       const mm = String(d.getUTCMinutes()).padStart(2,'0');
       const ss = String(d.getUTCSeconds()).padStart(2,'0');
-      setT(`${hh}:${mm}:${ss} BST`);
+      setT(`${hh}:${mm}:${ss} UTC`);
     };
     update();
     const id = setInterval(update, 1000);
@@ -559,6 +567,9 @@ const Hero = () => {
   return (
     <section className="hero" id="top">
       <div className="hero-video-wrap">
+        <video autoPlay muted loop playsInline
+          src={"assets/hero.mp4"}>
+        </video>
         <div className="hero-tint"></div>
         <div className="hero-grain"></div>
       </div>
@@ -566,7 +577,7 @@ const Hero = () => {
         <div className="hero-top-row">
           <div className="eyebrow hero-eyebrow"><span className="dot"></span>NSG / 001 — Animal nutrition science</div>
           <div className="hero-meta">
-            <span className="hero-clock">{clock || '00:00:00 BST'}</span>
+            <span className="hero-clock">{clock || '00:00:00 UTC'}</span>
           </div>
         </div>
         <h1 className="hero-display">
@@ -701,10 +712,10 @@ const SectorArt = ({ kind }) => {
 
 /* ---------- Sectors ---------- */
 const sectors = [
-  { n: '01', grad: 'linear-gradient(140deg, #84a890 0%, #2e5a3f 100%)', icon: 'pet',    title: 'Companion', copy: 'Clinically-proven joint, gut and mobility supplements for dogs and cats — sold direct-to-consumer through our own brands.' },
-  { n: '02', grad: 'linear-gradient(140deg, #c6e27a 0%, #2e5a3f 100%)', icon: 'equine', title: 'Equine', copy: 'Performance and recovery nutrition formulated for sport, leisure and working horses with veterinary oversight.' },
-  { n: '03', grad: 'linear-gradient(140deg, #eaf1e8 0%, #84a890 100%)', icon: 'agri',   title: 'Agriculture', copy: 'Scalable health and yield solutions for dairy, poultry and livestock producers — from trial to supply.' },
-  { n: '04', grad: 'linear-gradient(140deg, #1f3a2b 0%, #2e5a3f 60%, #c6e27a 100%)', icon: 'exotic', title: 'Exotic', copy: 'Species-specific programmes for zoos, sanctuaries and aquaria where off-the-shelf nutrition falls short.' },
+  { n: '01', img: "assets/sector-companion.jpeg",  alt: 'Lurcher dog and grey tabby cat on a pale concrete floor against a sage wall', title: 'Companion', copy: 'Clinically-proven joint, gut and mobility supplements for dogs and cats — sold direct-to-consumer through our own brands.' },
+  { n: '02', img: "assets/sector-equine.jpeg",   alt: 'Bay horse cantering across an English paddock', title: 'Equine', copy: 'Performance and recovery nutrition formulated for sport, leisure and working horses with veterinary oversight.' },
+  { n: '03', img: "assets/sector-agriculture.jpeg", alt: 'Small group of dairy cows in a hedged British pasture',         title: 'Agriculture', copy: 'Scalable health and yield solutions for dairy, poultry and livestock producers — from trial to supply.' },
+  { n: '04', img: "assets/sector-exotic.jpeg",  alt: 'Bearded dragon and tropical parrot meeting on a pale stone surface', title: 'Exotic', copy: 'Species-specific programmes for zoos, sanctuaries and aquaria where off-the-shelf nutrition falls short.' },
 ];
 const Sectors = () => (
   <section className="section sectors" id="sectors">
@@ -716,12 +727,8 @@ const Sectors = () => (
       <div className="sectors-grid reveal">
         {sectors.map(s => (
           <div className="sector" key={s.n}>
-            <div className="sector-img" style={{background: s.grad}}>
-              <div style={{position:'absolute', inset:0, display:'flex', alignItems:'center', justifyContent:'center'}}>
-                <div style={{width:'60%', maxWidth:200, opacity:0.85, filter:'drop-shadow(0 4px 12px rgba(0,0,0,0.15))'}}>
-                  <SectorArt kind={s.icon}/>
-                </div>
-              </div>
+            <div className="sector-img">
+              <img src={s.img} alt={s.alt} loading="lazy"/>
               <div className="sector-n">{s.n}</div>
               <Arrow className="sector-arrow"/>
             </div>
@@ -738,16 +745,8 @@ const Sectors = () => (
 
 /* ---------- Capability visual ---------- */
 const CapVisual = () => (
-  <div className="cap-visual" style={{background: 'radial-gradient(ellipse at 30% 30%, #ffffff 0%, #eaf1e8 45%, #84a890 100%)'}}>
-    <svg viewBox="0 0 400 500" style={{position:'absolute', inset:0, width:'100%', height:'100%'}} fill="none" stroke="#1f3a2b" strokeWidth="1">
-      <circle cx="200" cy="260" r="110" strokeWidth="1.5" opacity="0.4"/>
-      <circle cx="200" cy="260" r="70" strokeWidth="1.5" opacity="0.55"/>
-      <circle cx="200" cy="260" r="30" strokeWidth="1.5" opacity="0.7"/>
-      <path d="M120 380 Q200 350 280 380 L280 410 Q200 440 120 410 Z" fill="#1f3a2b" opacity="0.85" stroke="none"/>
-      <path d="M180 380 L180 420 M200 380 L200 420 M220 380 L220 420" stroke="#84a890" strokeWidth="0.8" opacity="0.6"/>
-      <text x="60" y="60" fontFamily="JetBrains Mono, monospace" fontSize="10" fill="#1f3a2b" opacity="0.55" letterSpacing="1">C₁₀₂H₁₄₉N₃₁O₃₈</text>
-      <text x="60" y="78" fontFamily="JetBrains Mono, monospace" fontSize="9" fill="#1f3a2b" opacity="0.4" letterSpacing="1">UC-II / undenatured</text>
-    </svg>
+  <div className="cap-visual">
+    <img src={"assets/capability-collagen.jpeg"} alt="Hydrolysed collagen peptide powder and stainless scoop on a pale surface" loading="lazy"/>
     <div className="v-label">Fig.01 — UC-II® collagen</div>
     <div className="v-caption">Hydrolysed collagen peptide powder — one of 24 actives in the NSG library.</div>
   </div>
@@ -844,7 +843,7 @@ const Founders = () => (
           initials="LH"
           label="Lisa Hilton"
           name="Lisa Hilton"
-          photo={null}
+          photo={"assets/founder-lisa.jpeg"}
           role="Co-founder · Formulation & Innovation"
           bio="Twenty years formulating human-grade supplements and nutraceuticals, now focused full-time on animal health. Founder of AniVatio, our consumer companion-animal brand, and an active dog foster who has raised 25+ dogs in the last decade — the research runs in both directions."
           links={[
@@ -856,7 +855,7 @@ const Founders = () => (
           initials="LS"
           label="Lee Smith"
           name="Lee Smith"
-          photo={null}
+          photo={"assets/founder-lee.jpeg"}
           role="Co-founder · Manufacturing & Supply"
           bio="Decades of manufacturing expertise across sports nutrition, supplements and private-label production. Brings the operational backbone that turns novel formulations into reliable, regulated product on shelves and in clinics."
           links={[

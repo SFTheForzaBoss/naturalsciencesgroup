@@ -1,147 +1,368 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Commitment to Animals - Natural Science Group</title>
-      <style>
-                * {
-                              margin: 0;
-                              padding: 0;
-                              box-sizing: border-box;
-                }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Commitment to Animals — Natural Science Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0d1410;
+    --ink-soft: #2a342d;
+    --muted: #6b7770;
+    --line: #d6dcd6;
+    --line-soft: #ebefea;
+    --paper: #ffffff;
+    --cream: #f6f5ef;
+    --green: #1f3a2b;
+    --green-2: #2e5a3f;
+    --green-tint: #eaf1e8;
+    --accent: #c6e27a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+  a { color: var(--green); }
+  ::selection { background: var(--green); color: #fff; }
 
-                body {
-                              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-                              background-color: #f5f5f5;
-                              color: #333;
-                }
+  .container { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 20px; }
+  .container-narrow { max-width: 760px; }
 
-                header {
-                              background-color: #ffffff;
-                              padding: 20px 40px;
-                              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                              display: flex;
-                              justify-content: space-between;
-                              align-items: center;
-                }
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px) saturate(120%); -webkit-backdrop-filter: blur(14px) saturate(120%);
+    background: rgba(255,255,255,0.9);
+    border-bottom: 1px solid rgba(214,220,214,0.6);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; max-width: 1440px; margin: 0 auto; padding: 0 20px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 26px; height: 26px; }
+  .brand-name { font-weight: 600; font-size: 14px; letter-spacing: -0.01em; }
+  .brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .back-link { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .back-link:hover { color: var(--green); }
+  .back-link svg { width: 14px; height: 14px; }
 
-                .logo {
-                              display: flex;
-                              align-items: center;
-                              gap: 10px;
-                              font-size: 18px;
-                              font-weight: 600;
-                }
+  /* Hero */
+  .doc-header {
+    padding: 80px 0 64px;
+    background: var(--cream);
+    border-bottom: 1px solid var(--line);
+    position: relative;
+    overflow: hidden;
+  }
+  .doc-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px; }
+  .doc-eyebrow .dot { display:inline-block; width:6px; height:6px; background: var(--green); border-radius: 50%; margin-right: 10px; vertical-align: 2px; }
+  .doc-title {
+    font-family: 'Inter Tight', sans-serif; font-weight: 300;
+    font-size: clamp(40px, 7.5vw, 84px);
+    line-height: 0.98; letter-spacing: -0.03em;
+    margin: 0 0 24px;
+    text-wrap: balance;
+  }
+  .doc-title em { font-family: 'Fraunces', serif; font-style: italic; color: var(--green); font-weight: 300; }
+  .doc-lead {
+    font-size: clamp(18px, 2.4vw, 22px);
+    line-height: 1.45; color: var(--ink-soft);
+    max-width: 60ch; margin: 0;
+    font-weight: 400;
+  }
 
-                nav a {
-                              text-decoration: none;
-                              color: #333;
-                              font-size: 14px;
-                              margin-left: 20px;
-                }
+  /* Pledge intro */
+  .pledge-intro { padding: 72px 0 32px; }
+  .pledge-intro .intro-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green); margin-bottom: 16px; }
+  .pledge-intro p { font-size: 17px; line-height: 1.65; color: var(--ink-soft); margin: 0 0 16px; }
+  .pledge-intro p.lead { font-size: 22px; line-height: 1.4; color: var(--ink); font-weight: 400; letter-spacing: -0.005em; margin-bottom: 24px; }
 
-                .content {
-                              max-width: 900px;
-                              margin: 40px auto;
-                              padding: 0 40px;
-                              background-color: white;
-                              border-radius: 8px;
-                              padding: 40px;
-                }
+  /* Pillars */
+  .pillars { padding: 56px 0 80px; }
+  .pillars-head { margin-bottom: 48px; }
+  .pillars-head .eb { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+  .pillars-head h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 300; letter-spacing: -0.025em; margin: 0; max-width: 22ch; }
+  .pillars-head h2 em { font-family: 'Fraunces', serif; font-style: italic; color: var(--green); font-weight: 300; }
 
-                h1 {
-                              color: #1a4d2e;
-                              margin-bottom: 30px;
-                }
+  .pillar-grid { display: grid; grid-template-columns: 1fr; gap: 0; border-top: 1px solid var(--ink); }
+  .pillar {
+    padding: 32px 0;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 50px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  .pillar-num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green); letter-spacing: 0.1em; padding-top: 4px; }
+  .pillar h3 { font-size: 22px; font-weight: 400; letter-spacing: -0.015em; margin: 0 0 10px; }
+  .pillar p { font-size: 15.5px; line-height: 1.6; color: var(--ink-soft); margin: 0; max-width: 60ch; }
 
-                h2 {
-                              color: #1a4d2e;
-                              margin-top: 30px;
-                              margin-bottom: 15px;
-                }
+  /* Quote band */
+  .quote-band {
+    background: var(--green); color: #fff;
+    padding: 80px 0;
+  }
+  .quote-band p {
+    font-family: 'Fraunces', serif; font-style: italic; font-weight: 300;
+    font-size: clamp(24px, 4vw, 36px);
+    line-height: 1.2; letter-spacing: -0.015em;
+    margin: 0; max-width: 24ch;
+  }
+  .quote-band p em { color: var(--accent); font-style: italic; }
+  .quote-band .att { margin-top: 24px; font-family: 'JetBrains Mono', monospace; font-size: 10.5px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,0.6); }
 
-                p {
-                              line-height: 1.8;
-                              margin-bottom: 15px;
-                              color: #555;
-                }
+  /* Five Freedoms */
+  .freedoms { padding: 80px 0; background: var(--cream); }
+  .freedoms-head { margin-bottom: 40px; }
+  .freedoms-head .eb { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+  .freedoms-head h2 { font-size: clamp(28px, 4vw, 40px); font-weight: 300; letter-spacing: -0.025em; margin: 0 0 14px; }
+  .freedoms-head h2 em { font-family: 'Fraunces', serif; font-style: italic; color: var(--green); font-weight: 300; }
+  .freedoms-head p { font-size: 16px; color: var(--ink-soft); margin: 0; max-width: 60ch; }
+  .freedoms-grid { display: grid; grid-template-columns: 1fr; gap: 12px; }
+  .freedom { background: #fff; border: 1px solid var(--line); padding: 22px 22px; }
+  .freedom .n { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--green); letter-spacing: 0.12em; margin-bottom: 6px; }
+  .freedom h4 { font-size: 17px; font-weight: 500; letter-spacing: -0.01em; margin: 0 0 6px; }
+  .freedom p { font-size: 14.5px; color: var(--muted); margin: 0; line-height: 1.55; }
 
-                ul {
-                              margin-left: 20px;
-                              margin-bottom: 15px;
-                }
+  /* CTA */
+  .cta-band { padding: 72px 0 96px; text-align: left; }
+  .cta-band h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 300; letter-spacing: -0.025em; margin: 0 0 16px; max-width: 22ch; }
+  .cta-band h2 em { font-family: 'Fraunces', serif; font-style: italic; color: var(--green); font-weight: 300; }
+  .cta-band p { font-size: 16px; color: var(--ink-soft); margin: 0 0 28px; max-width: 56ch; }
+  .cta-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--ink); color: #fff;
+    border: 1px solid var(--ink); padding: 13px 22px; border-radius: 999px;
+    font-size: 14px; text-decoration: none;
+    transition: background .2s, color .2s, border-color .2s;
+  }
+  .cta-btn:hover { background: var(--green); border-color: var(--green); color: #fff; }
+  .cta-btn svg { width: 14px; height: 14px; }
 
-                li {
-                              margin-bottom: 10px;
-                }
+  /* Footer */
+  .doc-footer { background: var(--ink); color: #fff; padding: 56px 0 40px; }
+  .doc-footer .container { max-width: 1440px; }
+  .doc-footer-grid { display: grid; grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .doc-footer .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
+  .doc-footer .value, .doc-footer .value a { font-size: 15px; color: #fff; text-decoration: none; line-height: 1.5; }
+  .doc-footer .value a { border-bottom: 1px solid rgba(255,255,255,0.25); }
+  .doc-footer .value a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .footer-bottom {
+    display: flex; flex-direction: column; gap: 12px;
+    padding-top: 24px; margin-top: 24px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .footer-links a:hover { color: var(--accent); }
 
-                footer {
-                              background-color: #1a4d2e;
-                              color: white;
-                              padding: 40px;
-                              text-align: center;
-                              margin-top: 60px;
-                }
+  @media (min-width: 640px) {
+    .container { padding: 0 28px; }
+    .freedoms-grid { grid-template-columns: repeat(2, 1fr); }
+    .pillar { grid-template-columns: 80px 1fr; gap: 32px; padding: 40px 0; }
+    .doc-footer-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+  }
+  @media (min-width: 900px) {
+    .container { padding: 0 40px; }
+    .doc-header { padding: 140px 0 96px; }
+    .freedoms-grid { grid-template-columns: repeat(5, 1fr); }
+    .pillars { padding: 96px 0 96px; }
+    .quote-band { padding: 120px 0; }
+    .freedoms { padding: 120px 0; }
+    .cta-band { padding: 120px 0; }
+  }
+</style>
+</head>
+<body>
 
-                footer a {
-                              color: #c4d46a;
-                              text-decoration: none;
-                }
-            </style>
-  </head>
-  <body>
-        <header>
-                  <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Natural Science Group</a>a></div>div>
-                  <nav>
-                                <a href="index.html">Home</a>a>
-                                <a href="privacy.html">Privacy Policy</a>a>
-                                <a href="commitment.html">Commitment to Animals</a>a>
-                  </nav>
-        </header>
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 28 28" width="26" height="26" fill="none">
+          <circle cx="14" cy="14" r="13" stroke="#1f3a2b" stroke-width="1.25"/>
+          <path d="M8 19 L8 9 L20 19 L20 9" stroke="#1f3a2b" stroke-width="1.5" stroke-linecap="square"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">Natural Science Group</div>
+        <div class="brand-sub">Animal Health R&amp;D</div>
+      </div>
+    </a>
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12 H5 M11 6 L5 12 L11 18"/></svg>
+      Back to home
+    </a>
+  </div>
+</nav>
 
-        <div class="content">
-                  <h1>Our Commitment to Animals</h1>
-                
-                <p>At Natural Science Group, animal welfare is at the core of everything we do. We are dedicated to advancing animal nutrition and health through ethical practices and scientific excellence.</p>
-                
-                <h2>Our Mission</h2>
-                <p>We believe that proper nutrition is fundamental to animal health and wellbeing. Our mission is to develop and provide the highest quality nutritional solutions that support optimal health across all species we serve.</p>
-                
-                <h2>Principles of Animal Welfare</h2>
-                <p>We are committed to the following principles:</p>
-                <ul>
-                              <li><strong>Health and Wellness:</strong> We prioritize animal health through scientifically-formulated nutrition that supports growth, reproduction, and longevity.</li>
-                            <li><strong>Ethical Research:</strong> All our research is conducted ethically, with proper care and consideration for animal subjects.</li>
-                            <li><strong>Sustainable Practices:</strong>strong> We are committed to environmentally sustainable practices that protect animal habitats and ecosystems.</li>
-                            <li><strong>Transparency:</strong> We maintain transparent practices in all our operations and are accountable for our products and services.</li>
-                            <li><strong>Continuous Improvement:</strong> We continually seek to improve our practices and products to better serve animal health.</li>
-                </ul>
-                
-                <h2>Product Quality and Safety</h2>
-                <p>Every product we develop undergoes rigorous testing to ensure safety, efficacy, and nutritional value. We work with veterinarians, nutritionists, and animal health experts to develop solutions that meet the highest standards.</p>
-                
-                <h2>Compliance and Standards</h2>
-                <p>We comply with all relevant regulations and standards governing animal nutrition and health. Our facilities and processes meet or exceed industry requirements for quality and safety.</p>
-                
-                <h2>Education and Outreach</h2>
-                <p>We are committed to educating veterinarians, farmers, and pet owners about proper animal nutrition. Through workshops, publications, and direct engagement, we promote best practices in animal care.</p>
-                
-                <h2>Contact Us</h2>
-                <p>If you have questions or concerns about our commitment to animal welfare, please contact us at:</p>
-                <p>Natural Science Group<br>Email: animalwelfare@naturalsciencegroup.com</p>
-        </div>div>
-      
-      <footer>
-                <p><a href="index.html">Home</a>a> | <a href="privacy.html">Privacy Policy</a>a> | <a href="commitment.html">Commitment to Animals</a>a></p>p>
-                <p style="margin-top: 20px; font-size: 0.9em;">© 2024 Natural Science Group. All rights reserved.</p>p>
-      </footer>
-  </body>
-</html>html>
-      </footer></p></p></strong></strong></li></li></strong></strong></li>
-                </ul></p></p></h1>
-                  </nav>
-        </header>
-  </body>
-      </style></title>
-  </head>
+<header class="doc-header">
+  <div class="container">
+    <div class="doc-eyebrow"><span class="dot"></span>NSG / Principles — Document 02</div>
+    <h1 class="doc-title">Our commitment <em>to animals.</em></h1>
+    <p class="doc-lead">
+      Every animal that interacts with our work — in trial, on farm, in the home or in the wild — deserves to be better off for it. This is the promise our science is held to.
+    </p>
+  </div>
+</header>
+
+<section class="pledge-intro">
+  <div class="container container-narrow">
+    <div class="intro-eyebrow">— The pledge</div>
+    <p class="lead">
+      Natural Science Group exists to make animals' lives healthier, longer and more comfortable. That mission only means anything if the way we work matches the outcomes we promise on the label.
+    </p>
+    <p>
+      We are formulators and scientists, not marketers. Many of us live with animals: dogs, cats, horses, livestock and exotics. The decisions we make in the lab and on the production floor are the same decisions we'd make for the animals in our own homes and yards.
+    </p>
+    <p>
+      This page sets out the principles every product, partnership and trial at NSG is held to.
+    </p>
+  </div>
+</section>
+
+<section class="pillars">
+  <div class="container container-narrow">
+    <div class="pillars-head">
+      <div class="eb">— Our principles</div>
+      <h2>Six commitments that <em>govern every product</em> we put on a shelf.</h2>
+    </div>
+    <div class="pillar-grid">
+      <div class="pillar">
+        <div class="pillar-num">01</div>
+        <div>
+          <h3>No animal testing for cosmetic or efficacy claims</h3>
+          <p>We do not, and will not, conduct laboratory testing on animals to validate marketing claims. Where regulators require safety data, we use ethically-sourced existing data, in-vitro models, and peer-reviewed published research.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">02</div>
+        <div>
+          <h3>Welfare-led clinical trials</h3>
+          <p>Our clinical studies are run with companion, equine and production animals already under veterinary care, in their normal homes and environments. Trials are designed by veterinary principal investigators, follow accepted welfare frameworks, and are stopped immediately if any participant shows distress.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">03</div>
+        <div>
+          <h3>Evidence before claims</h3>
+          <p>If we can't substantiate a benefit with peer-reviewed science or our own placebo-controlled data, it doesn't go on the label. We'd rather say less than overstate what a supplement can do.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">04</div>
+        <div>
+          <h3>Responsible sourcing</h3>
+          <p>Our actives are sourced from suppliers who can demonstrate responsible practice — sustainable harvesting for marine ingredients, certified-traceable supply chains for animal-derived inputs, and audited welfare standards where relevant. We prefer plant- and fermentation-derived alternatives wherever they perform.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">05</div>
+        <div>
+          <h3>Species-appropriate formulation</h3>
+          <p>A dog is not a small horse. A reptile is not a furry mammal. We formulate for the species, not by analogy — every product is designed around the actual physiology, palatability and intake pattern of the animal that will eat it.</p>
+        </div>
+      </div>
+      <div class="pillar">
+        <div class="pillar-num">06</div>
+        <div>
+          <h3>Giving back</h3>
+          <p>A portion of NSG's annual profit is directed to animal-welfare organisations — including rescue, sanctuary and conservation partners working across the four sectors we serve. We publish where the money goes.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote-band">
+  <div class="container container-narrow">
+    <p>"If we wouldn't give it to <em>our own</em> dog, horse or hen — it doesn't leave the building."</p>
+    <div class="att">A working principle, posted in the formulation lab</div>
+  </div>
+</section>
+
+<section class="freedoms">
+  <div class="container">
+    <div class="freedoms-head">
+      <div class="eb">— Foundation</div>
+      <h2>We hold our trials to the <em>Five Freedoms.</em></h2>
+      <p>The Five Freedoms, established by the UK Farm Animal Welfare Council, are the global baseline for animal welfare. We design every clinical study around them.</p>
+    </div>
+    <div class="freedoms-grid">
+      <div class="freedom">
+        <div class="n">01</div>
+        <h4>From hunger &amp; thirst</h4>
+        <p>Ready access to fresh water and an appropriate diet for full health and vigour.</p>
+      </div>
+      <div class="freedom">
+        <div class="n">02</div>
+        <h4>From discomfort</h4>
+        <p>An appropriate environment with shelter and a comfortable resting area.</p>
+      </div>
+      <div class="freedom">
+        <div class="n">03</div>
+        <h4>From pain &amp; disease</h4>
+        <p>Prevention or rapid diagnosis and treatment of illness or injury.</p>
+      </div>
+      <div class="freedom">
+        <div class="n">04</div>
+        <h4>To express normal behaviour</h4>
+        <p>Sufficient space, proper facilities, and the company of the animal's own kind.</p>
+      </div>
+      <div class="freedom">
+        <div class="n">05</div>
+        <h4>From fear &amp; distress</h4>
+        <p>Conditions and treatment which avoid mental suffering.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="container container-narrow">
+    <h2>Hold us to it. <em>Talk to the team.</em></h2>
+    <p>If you're a vet, welfare organisation or partner who wants to scrutinise our process — or contribute to it — get in touch. Transparency is part of the commitment.</p>
+    <a href="index.html#contact" class="cta-btn">
+      Send the team an enquiry
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12 H19 M13 6 L19 12 L13 18"/></svg>
+    </a>
+  </div>
+</section>
+
+<footer class="doc-footer">
+  <div class="container">
+    <div class="doc-footer-grid">
+      <div>
+        <div class="label">General enquiries</div>
+        <div class="value"><a href="mailto:info@naturalsciencegroup.co.uk">info@naturalsciencegroup.co.uk</a></div>
+      </div>
+      <div>
+        <div class="label">Welfare partnerships</div>
+        <div class="value"><a href="mailto:Lisa@naturalsciencegroup.co.uk">Lisa@naturalsciencegroup.co.uk</a></div>
+      </div>
+      <div>
+        <div class="label">Registered office</div>
+        <div class="value">Unit 8, Axiom Orbital Park,<br/>Hall Avenue, Ashford,<br/>Kent, England, TN24 0AA</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Natural Science Group Ltd.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="commitment.html">Commitment to Animals</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

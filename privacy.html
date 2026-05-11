@@ -1,137 +1,249 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Privacy Policy - Natural Science Group</title>
-      <style>
-                * {
-                              margin: 0;
-                              padding: 0;
-                              box-sizing: border-box;
-                }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Privacy Policy — Natural Science Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --ink: #0d1410;
+    --ink-soft: #2a342d;
+    --muted: #6b7770;
+    --line: #d6dcd6;
+    --line-soft: #ebefea;
+    --paper: #ffffff;
+    --cream: #f6f5ef;
+    --green: #1f3a2b;
+    --green-2: #2e5a3f;
+    --green-tint: #eaf1e8;
+    --accent: #c6e27a;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--ink);
+    background: var(--paper);
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.55;
+  }
+  a { color: var(--green); }
+  ::selection { background: var(--green); color: #fff; }
 
-                body {
-                              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-                              background-color: #f5f5f5;
-                              color: #333;
-                }
+  .container { width: 100%; max-width: 880px; margin: 0 auto; padding: 0 20px; }
 
-                header {
-                              background-color: #ffffff;
-                              padding: 20px 40px;
-                              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                              display: flex;
-                              justify-content: space-between;
-                              align-items: center;
-                }
+  /* Nav */
+  .nav {
+    position: sticky; top: 0; z-index: 50;
+    backdrop-filter: blur(14px) saturate(120%); -webkit-backdrop-filter: blur(14px) saturate(120%);
+    background: rgba(255,255,255,0.9);
+    border-bottom: 1px solid rgba(214,220,214,0.6);
+  }
+  .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 60px; max-width: 1440px; margin: 0 auto; padding: 0 20px; }
+  .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+  .brand-mark { width: 26px; height: 26px; }
+  .brand-name { font-weight: 600; font-size: 14px; letter-spacing: -0.01em; }
+  .brand-sub { font-family: 'JetBrains Mono', monospace; font-size: 9.5px; color: var(--muted); letter-spacing: 0.08em; text-transform: uppercase; }
+  .back-link { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-soft); letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
+  .back-link:hover { color: var(--green); }
+  .back-link svg { width: 14px; height: 14px; }
 
-                .logo {
-                              display: flex;
-                              align-items: center;
-                              gap: 10px;
-                              font-size: 18px;
-                              font-weight: 600;
-                }
+  /* Header */
+  .doc-header { padding: 80px 0 48px; border-bottom: 1px solid var(--line); }
+  .doc-eyebrow { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 24px; }
+  .doc-eyebrow .dot { display:inline-block; width:6px; height:6px; background: var(--green); border-radius: 50%; margin-right: 10px; vertical-align: 2px; }
+  .doc-title {
+    font-family: 'Inter Tight', sans-serif; font-weight: 300;
+    font-size: clamp(40px, 7vw, 72px);
+    line-height: 0.98; letter-spacing: -0.03em;
+    margin: 0 0 28px;
+  }
+  .doc-title em { font-family: 'Fraunces', serif; font-style: italic; color: var(--green); font-weight: 300; }
+  .doc-meta { font-family: 'JetBrains Mono', monospace; font-size: 10.5px; color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; display: flex; flex-wrap: wrap; gap: 24px; }
 
-                nav a {
-                              text-decoration: none;
-                              color: #333;
-                              font-size: 14px;
-                              margin-left: 20px;
-                }
+  /* Body */
+  .doc-body { padding: 56px 0 80px; }
+  .doc-body h2 {
+    font-size: 22px; font-weight: 500; letter-spacing: -0.01em;
+    margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--line-soft);
+    display: flex; gap: 18px; align-items: baseline;
+  }
+  .doc-body h2:first-child { border-top: none; padding-top: 0; margin-top: 0; }
+  .doc-body h2 .num { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--green); letter-spacing: 0.1em; min-width: 32px; }
+  .doc-body p, .doc-body li { font-size: 16px; line-height: 1.65; color: var(--ink-soft); }
+  .doc-body p { margin: 0 0 16px; }
+  .doc-body ul { padding-left: 20px; margin: 0 0 16px; }
+  .doc-body li { margin-bottom: 6px; }
+  .doc-body strong { color: var(--ink); font-weight: 500; }
 
-                .content {
-                              max-width: 900px;
-                              margin: 40px auto;
-                              padding: 0 40px;
-                              background-color: white;
-                              border-radius: 8px;
-                              padding: 40px;
-                }
+  .callout {
+    background: var(--cream); border-left: 3px solid var(--green);
+    padding: 18px 22px; margin: 24px 0;
+    font-size: 15px; color: var(--ink-soft);
+  }
 
-                h1 {
-                              color: #1a4d2e;
-                              margin-bottom: 30px;
-                }
+  /* Footer */
+  .doc-footer { background: var(--ink); color: #fff; padding: 56px 0 40px; }
+  .doc-footer .container { max-width: 1440px; }
+  .doc-footer-grid { display: grid; grid-template-columns: 1fr; gap: 28px; padding-bottom: 32px; border-bottom: 1px solid rgba(255,255,255,0.12); }
+  .doc-footer .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 10px; }
+  .doc-footer .value, .doc-footer .value a { font-size: 15px; color: #fff; text-decoration: none; line-height: 1.5; }
+  .doc-footer .value a { border-bottom: 1px solid rgba(255,255,255,0.25); }
+  .doc-footer .value a:hover { color: var(--accent); border-bottom-color: var(--accent); }
+  .footer-bottom {
+    display: flex; flex-direction: column; gap: 12px;
+    padding-top: 24px; margin-top: 24px;
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.4);
+    letter-spacing: 0.08em; text-transform: uppercase;
+  }
+  .footer-links { display: flex; flex-wrap: wrap; gap: 20px; }
+  .footer-links a { color: rgba(255,255,255,0.55); text-decoration: none; }
+  .footer-links a:hover { color: var(--accent); }
 
-                h2 {
-                              color: #1a4d2e;
-                              margin-top: 30px;
-                              margin-bottom: 15px;
-                }
+  @media (min-width: 640px) {
+    .container { padding: 0 28px; }
+    .doc-footer-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; }
+    .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+  }
+  @media (min-width: 900px) {
+    .container { padding: 0 40px; }
+    .doc-header { padding: 120px 0 64px; }
+    .doc-body { padding: 72px 0 120px; }
+  }
+</style>
+</head>
+<body>
 
-                p {
-                              line-height: 1.8;
-                              margin-bottom: 15px;
-                              color: #555;
-                }
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand">
+      <div class="brand-mark">
+        <svg viewBox="0 0 28 28" width="26" height="26" fill="none">
+          <circle cx="14" cy="14" r="13" stroke="#1f3a2b" stroke-width="1.25"/>
+          <path d="M8 19 L8 9 L20 19 L20 9" stroke="#1f3a2b" stroke-width="1.5" stroke-linecap="square"/>
+        </svg>
+      </div>
+      <div>
+        <div class="brand-name">Natural Science Group</div>
+        <div class="brand-sub">Animal Health R&amp;D</div>
+      </div>
+    </a>
+    <a href="index.html" class="back-link">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12 H5 M11 6 L5 12 L11 18"/></svg>
+      Back to home
+    </a>
+  </div>
+</nav>
 
-                footer {
-                              background-color: #1a4d2e;
-                              color: white;
-                              padding: 40px;
-                              text-align: center;
-                              margin-top: 60px;
-                }
+<header class="doc-header">
+  <div class="container">
+    <div class="doc-eyebrow"><span class="dot"></span>NSG / Legal — Document 01</div>
+    <h1 class="doc-title">Privacy <em>Policy</em></h1>
+    <div class="doc-meta">
+      <span>Last updated · 27 April 2026</span>
+      <span>Version 1.0</span>
+      <span>UK GDPR &amp; DPA 2018</span>
+    </div>
+  </div>
+</header>
 
-                footer a {
-                              color: #c4d46a;
-                              text-decoration: none;
-                }
-            </style>
-  </head>
-  <body>
-        <header>
-                  <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">Natural Science Group</a>a></div>div>
-                  <nav>
-                                <a href="index.html">Home</a>a>
-                                <a href="privacy.html">Privacy Policy</a>a>
-                                <a href="commitment.html">Commitment to Animals</a>a>
-                  </nav>
-        </header>
+<main class="doc-body">
+  <div class="container">
 
-        <div class="content">
-                  <h1>Privacy Policy</h1>
-                
-                <p>Last updated: 2024</p>
-                
-                <h2>1. Introduction</h2>
-                <p>Natural Science Group is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website.</p>
-                
-                <h2>2. Information We Collect</h2>
-                <p>We may collect information about you in a variety of ways. The information we may collect on the site includes:</p>
-                <p><strong>Personal Data:</strong> Personally identifiable information such as your name, shipping address, email address, and telephone number that you voluntarily give to us when you register with the site or when you choose to participate in various activities related to the site.</p>
-                
-                <h2>3. Use of Your Information</h2>
-                <p>Having accurate information about you permits us to provide you with a smooth, efficient, and customized experience. Specifically, we may use information collected about you via the site to:</p>
-                <ul style="margin-left: 20px;">
-                            <li>Generate a personal profile about you so that future visits to the site will be personalized</li>
-                            <li>Increase the efficiency and operation of the site</li>
-                            <li>Monitor and analyze usage and trends to improve your experience with the site</li>
-                </ul>ul>
-                
-                <h2>4. Disclosure of Your Information</h2>
-                <p>We may share information we have collected about you in certain situations:</p>
-                <p><strong>By Law or to Protect Rights:</strong> If we believe the release of information is necessary to comply with the law.</p>
-                
-                <h2>5. Security of Your Information</h2>
-                <p>We use administrative, technical, and physical security measures to help protect your personal information. While we have taken reasonable steps to secure the personal information you provide to us, please be aware that no security measures are perfect or impenetrable.</p>
-                
-                <h2>6. Contact Us</h2>
-                <p>If you have questions or comments about this Privacy Policy, please contact us at:</p>
-                <p>Natural Science Group<br>Email: privacy@naturalsciencegroup.com</p>
-        </div>div>
-      
-      <footer>
-                <p><a href="index.html">Home</a>a> | <a href="privacy.html">Privacy Policy</a>a> | <a href="commitment.html">Commitment to Animals</a>a></p>
-              <p style="margin-top: 20px; font-size: 0.9em;">© 2024 Natural Science Group. All rights reserved.</p>
-      </footer>
-  </body>
-</html>html></p>
-      </footer></strong></p></p></li></li></strong></p></p></h1>
-                  </nav>
-        </header>
-  </body>
-      </style></title>
-  </head>
+    <p>Natural Science Group Ltd ("NSG", "we", "our", "us") respects your privacy and is committed to protecting your personal data. This policy explains how we collect, use and safeguard information when you visit naturalsciencegroup.co.uk or get in touch with us as a partner, customer or supplier.</p>
+
+    <div class="callout">
+      We collect only what we need to respond to enquiries and run the business. We never sell your personal data, and we don't use it to train external models.
+    </div>
+
+    <h2><span class="num">01</span><span>Who we are</span></h2>
+    <p>Natural Science Group Ltd is a company registered in England and Wales, with our registered office at Unit 8, Axiom Orbital Park, Hall Avenue, Ashford, Kent, England, TN24 0AA. We are the data controller for personal information collected through this website.</p>
+    <p>For any privacy questions, contact us at <a href="mailto:info@naturalsciencegroup.co.uk">info@naturalsciencegroup.co.uk</a>.</p>
+
+    <h2><span class="num">02</span><span>Information we collect</span></h2>
+    <p>We collect the following limited categories of data:</p>
+    <ul>
+      <li><strong>Enquiry details</strong> — name, email address, organisation (optional), sector of interest, and the message you send through our enquiry form.</li>
+      <li><strong>Correspondence</strong> — emails you send us directly, and our replies.</li>
+      <li><strong>Technical data</strong> — basic server logs (IP address, browser, timestamp) used to keep the site secure and operational.</li>
+    </ul>
+
+    <h2><span class="num">03</span><span>How we use it</span></h2>
+    <ul>
+      <li>To respond to your enquiry and route it to the appropriate scientist or partner lead.</li>
+      <li>To maintain ongoing business correspondence with partners, vets, retailers and suppliers.</li>
+      <li>To meet our legal, regulatory and tax obligations.</li>
+      <li>To monitor and protect the security of our website and infrastructure.</li>
+    </ul>
+    <p>Our lawful bases for processing are <strong>legitimate interest</strong> (responding to enquiries you initiate, running our business) and <strong>legal obligation</strong> (tax, regulatory and compliance record-keeping).</p>
+
+    <h2><span class="num">04</span><span>Marketing</span></h2>
+    <p>We do not send unsolicited marketing email. If you ever opt in to product updates from one of our consumer brands, that brand will operate its own privacy notice and you can unsubscribe at any time.</p>
+
+    <h2><span class="num">05</span><span>Sharing your data</span></h2>
+    <p>We share personal data only with carefully selected service providers who help us run the business — for example our email host, our enquiry-form infrastructure, and our accountants. These providers are bound by contracts that require them to handle your data securely and only on our instructions.</p>
+    <p>We will disclose information where required by law, court order, or to protect the rights, property or safety of NSG, our staff, customers or others.</p>
+
+    <h2><span class="num">06</span><span>International transfers</span></h2>
+    <p>Some of our service providers process data outside the UK. Where this happens, we rely on UK-approved transfer mechanisms (such as the UK International Data Transfer Addendum) to ensure your data receives an equivalent level of protection.</p>
+
+    <h2><span class="num">07</span><span>How long we keep it</span></h2>
+    <p>Enquiry data is kept for up to 24 months unless an active commercial relationship is established, in which case correspondence is retained for the duration of that relationship plus a reasonable archival period for legal and audit purposes (typically 6 years).</p>
+
+    <h2><span class="num">08</span><span>Your rights</span></h2>
+    <p>Under UK GDPR you have the right to:</p>
+    <ul>
+      <li>Access the personal data we hold about you.</li>
+      <li>Request correction of inaccurate data.</li>
+      <li>Request erasure of your data, subject to legal retention requirements.</li>
+      <li>Object to or restrict processing.</li>
+      <li>Request data portability.</li>
+      <li>Withdraw consent where processing is based on consent.</li>
+      <li>Lodge a complaint with the UK Information Commissioner's Office (ICO) at <a href="https://ico.org.uk" target="_blank" rel="noreferrer">ico.org.uk</a>.</li>
+    </ul>
+    <p>To exercise any of these rights, email <a href="mailto:info@naturalsciencegroup.co.uk">info@naturalsciencegroup.co.uk</a>.</p>
+
+    <h2><span class="num">09</span><span>Cookies</span></h2>
+    <p>This site uses only strictly necessary cookies required to load pages and remember your basic preferences. We do not use third-party advertising or behavioural tracking cookies on naturalsciencegroup.co.uk.</p>
+
+    <h2><span class="num">10</span><span>Security</span></h2>
+    <p>We use industry-standard technical and organisational measures — including TLS encryption in transit, access controls, and limited internal data access — to protect your data. No system is perfectly secure, but we work hard to make ours robust.</p>
+
+    <h2><span class="num">11</span><span>Changes to this policy</span></h2>
+    <p>We may update this policy from time to time. The "Last updated" date at the top of the page reflects the most recent revision. Material changes will be flagged on this page.</p>
+
+  </div>
+</main>
+
+<footer class="doc-footer">
+  <div class="container">
+    <div class="doc-footer-grid">
+      <div>
+        <div class="label">General enquiries</div>
+        <div class="value"><a href="mailto:info@naturalsciencegroup.co.uk">info@naturalsciencegroup.co.uk</a></div>
+      </div>
+      <div>
+        <div class="label">Privacy questions</div>
+        <div class="value"><a href="mailto:info@naturalsciencegroup.co.uk">info@naturalsciencegroup.co.uk</a></div>
+      </div>
+      <div>
+        <div class="label">Registered office</div>
+        <div class="value">Unit 8, Axiom Orbital Park,<br/>Hall Avenue, Ashford,<br/>Kent, England, TN24 0AA</div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Natural Science Group Ltd.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="commitment.html">Commitment to Animals</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
