@@ -1,6 +1,4 @@
-
-
-<!-- Rebuild trigger --><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
         <meta charset="UTF-8">
@@ -13,182 +11,56 @@
                               box-sizing: border-box;
                 }
 
-                body {
-                              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-                              background-color: #f5f5f5;
-                              color: #333;
+                html, body {
+                              width: 100%;
+                              height: 100%;
+                              font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+                              background-color: #0a0a0a;
+                              color: #fff;
                 }
 
-                header {
-                              background-color: #ffffff;
-                              padding: 20px 40px;
-                              box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-                              display: flex;
-                              justify-content: space-between;
-                              align-items: center;
-                }
-
-                .logo {
+                .container {
+                              width: 100%;
+                              height: 100%;
                               display: flex;
                               align-items: center;
-                              gap: 10px;
-                              font-size: 18px;
-                              font-weight: 600;
-                }
-
-                nav {
-                              display: flex;
-                              gap: 30px;
-                }
-
-                nav a {
-                              text-decoration: none;
-                              color: #333;
-                              font-size: 14px;
-                              transition: color 0.3s;
-                }
-
-                nav a:hover {
-                              color: #7cb342;
-                }
-
-                .hero {
-                              background: linear-gradient(135deg, #1a4d2e 0%, #2d7a3e 100%);
-                              color: white;
-                              padding: 100px 40px;
-                              text-align: center;
-                              min-height: 70vh;
-                              display: flex;
-                              flex-direction: column;
                               justify-content: center;
-                              align-items: center;
-                }
-
-                .hero h1 {
-                              font-size: 4em;
-                              margin-bottom: 20px;
-                              font-weight: 300;
-                              letter-spacing: 2px;
-                }
-
-                .hero .tagline {
-                              font-size: 1.5em;
-                              color: #c4d46a;
-                              font-style: italic;
-                              margin-bottom: 40px;
-                }
-
-                .content {
-                              max-width: 1200px;
-                              margin: 60px auto;
-                              padding: 0 40px;
-                }
-
-                .section {
-                              margin-bottom: 60px;
-                }
-
-                .section h2 {
-                              font-size: 2.5em;
-                              margin-bottom: 20px;
-                              color: #1a4d2e;
-                }
-
-                .section p {
-                              font-size: 1.1em;
-                              line-height: 1.8;
-                              color: #555;
-                              margin-bottom: 15px;
-                }
-
-                footer {
-                              background-color: #1a4d2e;
-                              color: white;
                               padding: 40px;
                               text-align: center;
-                              margin-top: 60px;
                 }
 
-                footer a {
-                              color: #c4d46a;
-                              text-decoration: none;
-                              margin: 0 15px;
+                h1 {
+                              font-size: 2.5em;
+                              margin-bottom: 20px;
+                              background: linear-gradient(135deg, #fff 0%, #c4ff00 100%);
+                              -webkit-background-clip: text;
+                              -webkit-text-fill-color: transparent;
+                              background-clip: text;
                 }
 
-                footer a:hover {
-                              text-decoration: underline;
-                }
-
-                .contact-btn {
-                              background-color: #c4d46a;
-                              color: #1a4d2e;
-                              padding: 12px 30px;
-                              border: none;
-                              border-radius: 5px;
-                              font-size: 1em;
-                              font-weight: 600;
-                              cursor: pointer;
-                              transition: background-color 0.3s;
-                }
-
-                .contact-btn:hover {
-                              background-color: #b8c957;
+                .loading {
+                              font-size: 1.2em;
+                              color: #888;
                 }
             </style>
   </head>
   <body>
-        <header>
-                  <div class="logo">Natural Science Group</div>div>
-                  <nav>
-                                <a href="#about">About</a>a>
-                                <a href="#sectors">Sectors</a>a>
-                                <a href="#science">Science</a>a>
-                                <a href="#founders">Founders</a>a>
-                                <a href="#contact"><button class="contact-btn">Contact</button>button></a>a>
-                  </nav>
-        </header>
-
-        <section class="hero">
-                  <h1>Advanced <span class="tagline">nutrition</span>span></h1>
-                <p class="tagline">for every living thing under our care<br>from the smallest companion to the largest livestock</p>p>
-        </section>section>
+        <div class="container">
+                  <div>
+                                <h1>Natural Science Group</h1>
+                              <p class="loading">Advanced nutrition for every living thing under our care</p>p>
+                              <p class="loading" style="margin-top: 40px; font-size: 0.9em;">Loading new site design...</p>p>
+                  </div>
+        </div>
       
-      <div class="content">
-              <section class="section" id="about">
-                          <h2>About Us</h2>
-                          <p>Natural Science Group is dedicated to providing advanced nutritional solutions for animal health. With decades of expertise in animal nutrition and health, we develop products that support optimal wellness across all species.</p>
-              </section>section>
-              
-              <section class="section" id="sectors">
-                          <h2>Our Sectors</h2>
-                          <p>We serve diverse sectors including companion animals, livestock, aquaculture, and wildlife. Each sector receives specialized nutritional formulations based on scientific research and proven results.</p>
-              </section>section>
-              
-              <section class="section" id="science">
-                          <h2>Our Science</h2>
-                          <p>Our approach is grounded in rigorous scientific research. We collaborate with leading universities and research institutions to develop nutrition solutions that are both effective and sustainable.</p>
-              </section>section>
-              
-              <section class="section" id="founders">
-                          <h2>Leadership</h2>
-                          <p>Led by industry experts with over 100 combined years of experience in animal nutrition and health sciences, our founders established this company with a mission to revolutionize how we approach animal nutrition.</p>
-              </section>section>
-      </div>div>
-      
-      <footer id="contact">
-              <h3 style="margin-bottom: 20px;">Get in Touch</h3>
-              <p style="margin-bottom: 20px;">Contact us to learn more about our nutritional solutions</p>
-              <p>
-                            <a href="privacy.html">Privacy Policy</a>a> |
-                            <a href="commitment.html">Commitment to Animals</a>a>
-              </p>
-                <p style="margin-top: 20px; font-size: 0.9em; opacity: 0.8;">© 2024 Natural Science Group. All rights reserved.</p>
-      </footer>footer>
+      <script>
+                // This is a placeholder. The actual design will be loaded here.
+                console.log('Natural Science Group site loading');
+      </script>
   </body>
 </html>html>
-              </p></p></h2></h1>
-                  </nav>
-        </header>
+      </script></h1>
+                  </div>
   </body>
       </style></title>
   </head>
