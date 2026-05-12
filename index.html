@@ -239,10 +239,10 @@
   .founder-links a svg { width: 14px; height: 14px; }
 
   /* Contact */
-  .contact { background: var(--ink); color: #fff; padding: 72px 0 24px; border: none; }
-  .contact-display { font-size: clamp(44px, 12vw, 64px); line-height: 0.95; letter-spacing: -0.035em; font-weight: 300; margin: 20px 0 48px; }
+  .contact { background: var(--ink); color: #fff; padding: 56px 0 20px; border: none; }
+  .contact-display { font-size: clamp(44px, 12vw, 64px); line-height: 0.95; letter-spacing: -0.035em; font-weight: 300; margin: 16px 0 24px; }
   .contact-display em { font-family: 'Fraunces', serif; font-style: italic; color: var(--accent); font-weight: 300; }
-  .contact-grid { display: grid; grid-template-columns: 1fr; gap: 28px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,0.12); }
+  .contact-grid { display: grid; grid-template-columns: 1fr; gap: 20px; padding-top: 24px; border-top: 1px solid rgba(255,255,255,0.12); }
   .contact-group .label { font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.5); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 12px; }
   .contact-group .value { font-size: 15px; color: #fff; line-height: 1.5; }
   .contact-group .value a { color: #fff; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.25); transition: border-color .3s, color .3s; }
@@ -250,13 +250,13 @@
   .contact-group .placeholder { font-family: 'JetBrains Mono', monospace; font-size: 11.5px; color: rgba(255,255,255,0.4); border: 1px dashed rgba(255,255,255,0.22); padding: 10px 12px; display: inline-block; }
 
   .footer-bottom {
-    display: flex; flex-direction: row; flex-wrap: wrap; gap: 16px;
-    align-items: center; justify-content: space-between;
-    padding-top: 20px; margin-top: 28px; border-top: 1px solid rgba(255,255,255,0.08);
+    display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 12px;
+    padding-top: 16px; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.08);
     font-family: 'JetBrains Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.4);
     letter-spacing: 0.08em; text-transform: uppercase;
   }
-  .footer-bottom .powered-by { display: inline-flex; align-items: center; gap: 6px; text-transform: none; letter-spacing: 0.025em; font-family: 'Inter Tight', sans-serif; font-size: 12px; color: #9ca3af; font-weight: 500; }
+  .footer-bottom > .copyright { justify-self: start; }
+  .footer-bottom > .powered-by { justify-self: center; display: inline-flex; align-items: center; gap: 6px; text-transform: none; letter-spacing: 0.025em; font-family: 'Inter Tight', sans-serif; font-size: 12px; color: #9ca3af; font-weight: 500; }
   .footer-bottom .panacea-link { color: #4ade80; font-weight: 600; text-decoration: none; filter: drop-shadow(0 0 8px rgba(74,222,128,0.6)); animation: panacea-pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite; }
   .footer-bottom .panacea-link:hover { color: #86efac; }
   @keyframes panacea-pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.7; } }
@@ -370,7 +370,7 @@
     .contact-grid { grid-template-columns: repeat(2, 1fr); }
     .contact-grid .contact-group:last-child { grid-column: 1 / -1; }
     .contact-display { font-size: clamp(64px, 10vw, 88px); }
-    .footer-bottom { flex-direction: row; justify-content: space-between; align-items: center; }
+    .footer-bottom { /* base grid layout applies */ }
   }
 
   /* ===== ≥900px — desktop unlock ===== */
@@ -431,13 +431,13 @@
     .founder-name { font-size: 32px; }
     .founder-bio { font-size: 15px; max-width: 52ch; }
 
-    .contact { padding: 140px 0 60px; }
-    .contact-display { font-size: clamp(88px, 9vw, 148px); line-height: 0.9; letter-spacing: -0.04em; margin: 0 0 80px; }
-    .contact-grid { grid-template-columns: repeat(3, 1fr); gap: 40px; padding-top: 40px; }
+    .contact { padding: 100px 0 28px; }
+    .contact-display { font-size: clamp(72px, 7.5vw, 112px); line-height: 0.95; letter-spacing: -0.04em; margin: 0 0 28px; }
+    .contact-grid { grid-template-columns: repeat(3, 1fr); gap: 32px; padding-top: 24px; }
     .contact-grid .contact-group:last-child { grid-column: auto; }
     .contact-group .label { font-size: 10.5px; }
 
-    .footer-bottom { padding-top: 60px; margin-top: 80px; font-size: 11px; }
+    .footer-bottom { padding-top: 18px; margin-top: 24px; font-size: 11px; }
   }
 
   /* Logomark */
@@ -1033,7 +1033,7 @@ const Contact = () => (
       <h2 className="contact-display reveal">
         Work with the <em>science team.</em>
       </h2>
-      <div style={{margin:'0 0 32px'}}>
+      <div style={{margin:'0 0 20px'}}>
         <button className="modal-submit" style={{background:'var(--accent)',color:'var(--ink)',borderColor:'var(--accent)'}} onClick={() => window.__openEnquiry && window.__openEnquiry()}>
           Send an enquiry
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12 H19 M13 6 L19 12 L13 18"/></svg>
@@ -1043,24 +1043,26 @@ const Contact = () => (
         <div className="contact-group">
           <div className="label">General enquiries</div>
           <div className="value"><a href="mailto:info@naturalsciencegroup.co.uk">info@naturalsciencegroup.co.uk</a></div>
-        </div>
-        <div className="contact-group">
-          <div className="label">Partnerships</div>
+          <div className="label" style={{marginTop:'16px'}}>Partnerships</div>
           <div className="value"><a href="mailto:Lisa@naturalsciencegroup.co.uk">Lisa@naturalsciencegroup.co.uk</a></div>
         </div>
         <div className="contact-group">
           <div className="label">Registered office</div>
           <div className="value">Unit 8, Axiom Orbital Park,<br/>Hall Avenue, Ashford,<br/>Kent, England, TN24 0AA</div>
         </div>
+        <div className="contact-group">
+          <div className="label">Legal</div>
+          <div className="value" style={{display:'flex', flexDirection:'column', gap:'6px'}}>
+            <a href="privacy.html" style={{color:'rgba(255,255,255,0.55)', textDecoration:'none', transition:'color .2s'}} onMouseEnter={(e)=>e.currentTarget.style.color='var(--accent)'} onMouseLeave={(e)=>e.currentTarget.style.color='rgba(255,255,255,0.55)'}>Privacy Policy</a>
+            <a href="commitment.html" style={{color:'rgba(255,255,255,0.55)', textDecoration:'none', transition:'color .2s'}} onMouseEnter={(e)=>e.currentTarget.style.color='var(--accent)'} onMouseLeave={(e)=>e.currentTarget.style.color='rgba(255,255,255,0.55)'}>Commitment to Animals</a>
+          </div>
+        </div>
       </div>
       <div className="footer-bottom">
-        <span>© 2026 Natural Science Group Ltd.</span>
-        <div style={{display:'flex', flexWrap:'wrap', gap:'20px'}}>
-          <a href="privacy.html" style={{color:'rgba(255,255,255,0.55)', textDecoration:'none', transition:'color .2s'}} onMouseEnter={(e)=>e.currentTarget.style.color='var(--accent)'} onMouseLeave={(e)=>e.currentTarget.style.color='rgba(255,255,255,0.55)'}>Privacy Policy</a>
-          <a href="commitment.html" style={{color:'rgba(255,255,255,0.55)', textDecoration:'none', transition:'color .2s'}} onMouseEnter={(e)=>e.currentTarget.style.color='var(--accent)'} onMouseLeave={(e)=>e.currentTarget.style.color='rgba(255,255,255,0.55)'}>Commitment to Animals</a>
-        </div>
-      <span className="powered-by">Powered by <a href="https://panaceasuite.io" target="_blank" rel="noopener noreferrer" className="panacea-link">PANACEA</a></span>
-        </div>
+        <span className="copyright">© 2026 Natural Science Group Ltd.</span>
+        <span className="powered-by">Powered by <a href="https://panaceasuite.io" target="_blank" rel="noopener noreferrer" className="panacea-link">PANACEA</a></span>
+        <span></span>
+      </div>
     </div>
   </section>
 );
